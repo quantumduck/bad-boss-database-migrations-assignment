@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170413181754) do
+ActiveRecord::Schema.define(version: 20170413190946) do
 
   create_table "cities", force: :cascade do |t|
     t.string   "name"
@@ -18,32 +18,13 @@ ActiveRecord::Schema.define(version: 20170413181754) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "countries", force: :cascade do |t|
-    t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "locations", force: :cascade do |t|
     t.string   "name"
-    t.integer  "country_id"
-    t.integer  "region_id"
     t.integer  "city_id"
-    t.integer  "street_name_id"
-    t.integer  "street_number"
-    t.integer  "unit_number"
-    t.decimal  "gps_east"
-    t.decimal  "gps_north"
-    t.decimal  "time_zone"
-    t.integer  "telephone"
-    t.integer  "fax"
-    t.string   "modifiers"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string   "weather"
     t.index ["city_id"], name: "index_locations_on_city_id"
-    t.index ["country_id"], name: "index_locations_on_country_id"
-    t.index ["region_id"], name: "index_locations_on_region_id"
-    t.index ["street_name_id"], name: "index_locations_on_street_name_id"
   end
 
   create_table "parts", force: :cascade do |t|
@@ -51,18 +32,6 @@ ActiveRecord::Schema.define(version: 20170413181754) do
     t.string  "manufacturer"
     t.decimal "cost"
     t.decimal "quantity"
-  end
-
-  create_table "regions", force: :cascade do |t|
-    t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "street_names", force: :cascade do |t|
-    t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "widget_drs", force: :cascade do |t|
