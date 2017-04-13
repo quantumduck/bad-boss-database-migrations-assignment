@@ -4,3 +4,5 @@ class QuantityToDecimal < ActiveRecord::Migration[5.0]
     add_column :parts, :quantity, :decimal
   end
 end
+
+# This migration reverted in next migration
