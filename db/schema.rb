@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170413191825) do
+ActiveRecord::Schema.define(version: 20170413192832) do
 
   create_table "cities", force: :cascade do |t|
     t.string   "name"
@@ -63,55 +63,6 @@ ActiveRecord::Schema.define(version: 20170413191825) do
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-  end
-
-  create_table "widget_drs", force: :cascade do |t|
-    t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "widget_ils", force: :cascade do |t|
-    t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "widget_mds", force: :cascade do |t|
-    t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "widget_vls", force: :cascade do |t|
-    t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "widget_vps", force: :cascade do |t|
-    t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "widgets", force: :cascade do |t|
-    t.string   "first_name"
-    t.string   "last_name"
-    t.integer  "dietary_restriction_id"
-    t.decimal  "salary"
-    t.integer  "number_of_kids"
-    t.integer  "vulnerability_id"
-    t.integer  "illness_id"
-    t.integer  "medication_id"
-    t.integer  "voting_preference_id"
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
-    t.index ["dietary_restriction_id"], name: "index_widgets_on_dietary_restriction_id"
-    t.index ["illness_id"], name: "index_widgets_on_illness_id"
-    t.index ["medication_id"], name: "index_widgets_on_medication_id"
-    t.index ["voting_preference_id"], name: "index_widgets_on_voting_preference_id"
-    t.index ["vulnerability_id"], name: "index_widgets_on_vulnerability_id"
   end
 
 end
