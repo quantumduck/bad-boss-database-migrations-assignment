@@ -10,7 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170413162802) do
+ActiveRecord::Schema.define(version: 20170413165539) do
+
+  create_table "cities", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "countries", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "dietary_restrictions", force: :cascade do |t|
     t.string   "name"
@@ -22,6 +34,28 @@ ActiveRecord::Schema.define(version: 20170413162802) do
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "locations", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "country_id"
+    t.integer  "region_id"
+    t.integer  "city_id"
+    t.integer  "street_name_id"
+    t.integer  "street_number"
+    t.integer  "unit_number"
+    t.decimal  "gps_east"
+    t.decimal  "gps_north"
+    t.decimal  "time_zone"
+    t.integer  "telephone"
+    t.integer  "fax"
+    t.string   "modifiers"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+    t.index ["city_id"], name: "index_locations_on_city_id"
+    t.index ["country_id"], name: "index_locations_on_country_id"
+    t.index ["region_id"], name: "index_locations_on_region_id"
+    t.index ["street_name_id"], name: "index_locations_on_street_name_id"
   end
 
   create_table "medications", force: :cascade do |t|
@@ -54,6 +88,18 @@ ActiveRecord::Schema.define(version: 20170413162802) do
     t.index ["medication_id"], name: "index_party_guests_on_medication_id"
     t.index ["voting_preference_id"], name: "index_party_guests_on_voting_preference_id"
     t.index ["vulnerability_id"], name: "index_party_guests_on_vulnerability_id"
+  end
+
+  create_table "regions", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "street_names", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "voting_preferences", force: :cascade do |t|
